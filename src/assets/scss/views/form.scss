@@ -1,0 +1,60 @@
+.form {
+  background: $white;
+
+  &__group {
+    position: relative;
+    &--set-shadow {
+      box-shadow: 0 0 20px rgba(120, 161, 187, 0.3);
+      border-radius: 30px 30px 0 0;
+      .v-input {
+        border-radius: 30px 30px 0 0;
+        border-bottom: none;
+      }
+    }
+
+  }
+
+  &__btn {
+    right: 0;
+    top: 0;
+    position: absolute;
+  }
+
+  &__list {
+    border: 1px solid #e9f0eb;
+    border-top: none;
+    padding-left: 35px;
+    padding-right: 30px;
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+    background: $white;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 0 20px rgba(120, 161, 187, 0.3);
+    z-index: 103;
+    &.hide {
+      visibility: hidden;
+    }
+  }
+
+  &__item {
+    font-size: 22px;
+    color: $dark;
+    border-top: 1px solid  $light-lime;
+    line-height: 23px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__error {
+    color: #ff4757;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+    display: inline-block;
+    margin-top: 15px;
+  }
+}

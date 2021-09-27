@@ -1,0 +1,57 @@
+$margin: mt, mr, mb, ml, m;
+
+@for $i from 1 through 20 {
+  @each $val in $margin {
+    @if $val == mt {
+      .#{$val}-#{$i*10/2} {
+        margin-top: #{$i * 0.5}rem;
+      }
+    }
+
+    @else if $val == mr {
+      .#{$val}-#{$i*10/2} {
+        margin-right: #{$i * 0.5}rem;
+      }
+    }
+
+    @else if $val == mb {
+      .#{$val}-#{$i*10/2} {
+        margin-bottom: #{$i * 0.5}rem;
+      }
+    }
+
+    @else if $val == ml {
+      .#{$val}-#{$i*10/2} {
+        margin-left: #{$i * 0.5}rem;
+      }
+    }
+
+  }
+}
+
+@each $val in $margin {
+  @if $val == mt {
+    .#{$val}-auto {
+      margin-top: auto;
+    }
+  }
+  @else if $val == mr {
+    .#{$val}-auto {
+      margin-right: auto;
+    }
+  }
+  @else if $val == mb {
+    .#{$val}-auto {
+      margin-bottom: auto;
+    }
+  }
+  @else if $val == ml {
+    .#{$val}-auto {
+      margin-left: auto;
+    }
+  } @else {
+    .#{$val}-auto {
+      margin: auto;
+    }
+  }
+}

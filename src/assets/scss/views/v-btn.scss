@@ -1,0 +1,24 @@
+.v-btn {
+  border-radius: 50px;
+  padding: 17px 50px;
+  font-weight: bold;
+  line-height: 29px;
+  font-size: 24px;
+  color: $white;
+  z-index: 110;
+  &__sky-blue {
+    background: $sky-blue-lr-gt;
+    transition: all .5s;
+    &:hover {
+      background: lighten($sky-blue, 20%);
+    }
+  }
+  &__scarlet {
+    background: $scarlet-lr-gt;
+    &:hover {
+      background: lighten($scarlet, 20%);
+    }
+  }
+}
+
+

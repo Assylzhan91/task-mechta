@@ -1,13 +1,27 @@
 <template>
-	<input type="text" class="form__input" placeholder="Enter name of the city">
+	<div class="v-input">
+		<input
+			type="text"
+			class="v-input__elem"
+			placeholder="Enter name of the city"
+			:value="value"
+			@input="$emit('handler', $event.target.value.trim())"
+		>
+	</div>
 </template>
 
 <script>
 export default {
-  name: "VInput"
+  name: "VInput",
+	props: {
+    value: String
+	},
+	computed: {
+    hideShadow(){
+      return this.value.length
+				? 'v-input--hide-shadow'
+				: ''
+		}
+	}
 }
 </script>
-
-<style scoped>
-
-</style>

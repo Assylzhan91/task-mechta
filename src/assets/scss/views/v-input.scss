@@ -1,0 +1,24 @@
+.v-input {
+  height: 63px;
+  border: 1px solid #e9f0eb;
+  overflow: hidden;
+  border-radius: 30px 30px 30px 30px;
+  z-index: 106;
+  position: relative;
+
+  &__elem {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    padding-left: 35px;
+    font-size: 24px;
+    color: #283044;
+    &::placeholder {
+      color: #d9e4dc;
+    }
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}

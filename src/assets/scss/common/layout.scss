@@ -1,12 +1,32 @@
-body,
-html {
-
+html,
+body {
+	margin: 0;
+	padding: 0;
 }
-ul, p {
+
+* {
+	box-sizing: border-box;
+}
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
+
+button {
+	cursor: pointer;
+	border: 0;
+	padding: 0;
+	outline: none;
+	background: transparent;
+}
+
 a {
 	text-decoration: none;
 }
@@ -17,4 +37,3 @@ a {
 	padding-right: 30px;
 	margin: auto;
 }
-
