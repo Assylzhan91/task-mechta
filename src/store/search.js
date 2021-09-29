@@ -20,11 +20,16 @@ export default {
   mutations: {
     searchSetVal(state, {value, getters}) {
       state.searchVal = value
-      if(state.searchVal.length && getters.searchingCityVal.length) {
+      let { searchingCityVal } =  getters
+      if(state.searchVal.length && searchingCityVal.length) {
         state.setClassShow = true
         state.isOpen = true
+        if(state.searchVal === searchingCityVal[0].label){
+          state.setClassShow = false
+        }
       }else {
         state.setClassShow = false
+        console.log(2)
       }
     },
 

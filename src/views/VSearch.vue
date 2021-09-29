@@ -4,7 +4,8 @@
 		@submit.prevent = "onSubmit"
 		@keypress.enter = "onSubmit"
 	>
-
+		<h1>showError: {{ showError }}</h1>
+		<h1>showErrorSearchVal: {{ showErrorSearchVal }}</h1>
 		<div
 			class="form__group"
 			:class="setClassShow"
@@ -41,7 +42,7 @@
 <script>
 import VBtn from "@/components/VBtn";
 import VInput from "@/components/VInput";
-import {mapGetters, mapActions, mapState} from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
 
 
 export default {
@@ -95,8 +96,12 @@ export default {
 	watch: {
     searchVal(val) {
      if(val.length && this.searchingCityVal.length) {
-       if(this.isOpen){
-         this.showError = true
+       if(this.isOpen && this.searchingCityVal.length) {
+         if(this.searchingCityVal[0].label === val){
+           this.showError = false
+         }else {
+           this.showError = true
+				 }
        }else {
          this.showError = false
 			 }
