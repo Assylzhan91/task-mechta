@@ -13,10 +13,10 @@
 					<slot name="right"></slot>
 				</div>
 			</div>
-			<div class="banner">
+			<div class="banner banner--hidden">
 				<img class="banner__img" src="@/assets/images/free-shipping.svg" alt="">
 			</div>
-			<div class="container">
+			<div class="container main__right-footer">
 				<slot name="media-footer">
 				</slot>
 			</div>

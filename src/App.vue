@@ -1,7 +1,7 @@
 <template>
 		<v-layout>
 			<template #left>
-				<v-header class="mb-80"/>
+				<v-header class="mb-80 main__left-header"/>
 				<v-search class="mb-40"/>
 				<v-table-cities class="mb-100" />
 				<v-footer class="main__footer" />

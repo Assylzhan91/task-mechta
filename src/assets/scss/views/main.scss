@@ -19,6 +19,12 @@
         margin-bottom: 30px;
       }
     }
+
+    &-header {
+      @include media("max", "xl") {
+        margin-bottom: 40px;
+      }
+    }
   }
 
   &__right{
@@ -26,8 +32,17 @@
 
     &-wrapper {
       margin-left: 70px;
+      display: none;
+      padding-bottom: 25px;
       @include media("max", "xl") {
         margin-left: 0;
+      }
+    }
+
+    &-footer {
+      display: none;
+      @include media("max", "xl") {
+        display: block;
       }
     }
     &::after {
@@ -37,7 +52,7 @@
       background-repeat: no-repeat;
       background-color: #F7F7F7;
       background-size: contain;
-      position: absolute;
+      position: fixed;
       display: block;
       content: '';
       height: 100%;
@@ -50,25 +65,12 @@
     }
   }
 
-  &__wrapper {
-
-
-    @include media("max", "xl") {
-      margin-right: 0;
-      margin-bottom: 30px;
-    }
-  }
   &__footer {
     @include media("max", "xl") {
       display: none;
     }
   }
 
-  &__media-footer {
-    @include media("min", "xl") {
-      display: none;
-    }
-  }
   @include media("max", "xl") {
     flex-direction: column;
   }
