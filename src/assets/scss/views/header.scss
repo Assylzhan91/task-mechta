@@ -2,22 +2,38 @@
   &__wrapper {
     display: flex;
     align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   &__img {
     margin-right: 1.7rem;
+    height: 40px;
   }
 
   &__title {
     color: $dark;
     font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
     &-large {
       font-size: 48px;
+      font-style: normal;
+      font-weight: bold;
+      @include media("max", "xl") {
+        font-size: 36px;
+        line-height: 42px;
+      }
     }
   }
 
   &__desc {
     font-size: 24px;
     color: rgba(#283044, .5);
+    line-height: 28px;
+    @include media("max", "xl") {
+      font-size: 16px;
+      line-height: 19px;
+    }
   }
 }

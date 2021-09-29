@@ -1,0 +1,12 @@
+.banner {
+  content: '';
+  background-color: #F7F7F7;
+  border-radius: 40px  40px 0 0;
+  display: none;
+  @include media("max", "xl") {
+    display: flex;
+  }
+  &__img {
+    width: 100%;
+  }
+}

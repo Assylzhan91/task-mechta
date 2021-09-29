@@ -1,13 +1,26 @@
 <template>
-	<div>
-		<section v-if="this.$slots.left" class="content__left">
-			<div class="content__wrapper">
-				<slot name="left"></slot>
+	<div class="main">
+		<div class="main__left">
+			<div class="container">
+				<div class="main__left-wrapper">
+					<slot name="left"></slot>
+				</div>
 			</div>
-		</section>
-		<section v-if="this.$slots.right" class="content__right">
-			<slot name="right"></slot>
-		</section>
+		</div>
+		<div class="main__right">
+			<div class="main__right-wrapper banner">
+				<div class="container">
+					<slot name="right"></slot>
+				</div>
+			</div>
+			<div class="banner">
+				<img class="banner__img" src="@/assets/images/free-shipping.svg" alt="">
+			</div>
+			<div class="container">
+				<slot name="media-footer">
+				</slot>
+			</div>
+		</div>
 	</div>
 </template>
 

@@ -1,7 +1,7 @@
 export default {
   namespaced: true,
   state: {
-    options : [
+    options: [
       { label: 'Nur-Sultan', disabled: true },
       { label: 'Almaty', disabled: true },
       { label: 'Shymkent', disabled: true },
@@ -11,6 +11,7 @@ export default {
       { label: 'Karaganda', disabled: true },
       { label: 'Kentau', disabled: true },
     ],
+
     searchVal: '',
     isOpen: true,
     setClassShow: false
@@ -26,31 +27,33 @@ export default {
         state.setClassShow = false
       }
     },
+
     clearValCities(state){
       state.searchVal = ''
       this.showError = false
     },
+
     onSubmit(state, getters){
       let { searchingCityVal } =  getters
-
       if(state.searchVal.length && searchingCityVal.length === 1) {
         state.searchVal = searchingCityVal[0].label
         state.setClassShow = false
         state.isOpen = false
       }
-
     },
-
   },
+
   actions: {
     searchSetValAction({commit, getters}, value) {
       commit('searchSetVal', {
         value, getters
       })
     },
+
     clearValCityAction({commit}) {
       commit('clearValCities')
     },
+
     onSubmitAction({commit, getters}) {
       commit('onSubmit', getters)
     }
@@ -78,7 +81,7 @@ export default {
       return state.setClassShow
         ? 'form__group--set-shadow'
         : ''
-    }
+    },
   },
 
 };

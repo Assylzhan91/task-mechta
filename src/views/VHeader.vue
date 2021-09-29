@@ -1,6 +1,6 @@
 <template>
 	<header class="header">
-		<div class="header__wrapper mb-80">
+		<div class="header__wrapper mb-40">
 			<img class="header__img" src="@/assets/images/icons/fs-icon.svg" alt="">
 			<h4 class="header__title">FastService</h4>
 		</div>
@@ -10,7 +10,8 @@
 </template>
 
 <script>
+
 export default {
-  name: "VHeader"
+  name: "VHeader",
 }
 </script>

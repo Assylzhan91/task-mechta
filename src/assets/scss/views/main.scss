@@ -1,0 +1,75 @@
+.main {
+  display: flex;
+  justify-content: center;
+  &__left,
+  &__right {
+    width: 100%;
+  }
+  &__left{
+    margin-right: 110px;
+    display: flex;
+    justify-content: flex-end;
+
+    &-wrapper {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      @include media("max", "xl") {
+        height: auto;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__right{
+    position: relative;
+
+    &-wrapper {
+      margin-left: 70px;
+      @include media("max", "xl") {
+        margin-left: 0;
+      }
+    }
+    &::after {
+      background-image: url("../images/free-shipping.svg");
+      background-position-y: bottom;
+      border-radius: 40px 0 0 40px;
+      background-repeat: no-repeat;
+      background-color: #F7F7F7;
+      background-size: contain;
+      position: absolute;
+      display: block;
+      content: '';
+      height: 100%;
+      width: 100%;
+      z-index: 90;
+      top: 0;
+      @include media("max", "xl") {
+        display: none;
+      }
+    }
+  }
+
+  &__wrapper {
+
+
+    @include media("max", "xl") {
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
+  }
+  &__footer {
+    @include media("max", "xl") {
+      display: none;
+    }
+  }
+
+  &__media-footer {
+    @include media("min", "xl") {
+      display: none;
+    }
+  }
+  @include media("max", "xl") {
+    flex-direction: column;
+  }
+}

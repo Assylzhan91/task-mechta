@@ -2,6 +2,8 @@ html,
 body {
 	margin: 0;
 	padding: 0;
+	height: 100vh;
+	min-width: 320px;
 }
 
 * {
@@ -32,8 +34,11 @@ a {
 }
 
 .container {
-	max-width: 1260px;
+	max-width: 580px;
 	padding-left: 30px;
 	padding-right: 30px;
-	margin: auto;
+	width: 100%;
+	@include media("max", "xl") {
+		max-width: 1160px;
+	}
 }

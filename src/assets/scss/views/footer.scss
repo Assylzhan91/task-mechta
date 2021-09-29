@@ -1,0 +1,24 @@
+.footer {
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    align-items: center;
+    @include media("max", "sm") {
+      flex-direction: column;
+      align-items: flex-start
+    }
+  }
+  &__left {
+    @include media("max", "sm") {
+     margin-bottom: 20px;
+    }
+  }
+
+  &__text {
+    color: $dark;
+    opacity: 0.5;
+  }
+}

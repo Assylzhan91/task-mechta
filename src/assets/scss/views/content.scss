@@ -3,16 +3,20 @@
   flex-grow: 1;
 
   &__wrapper {
-    max-width: 550px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @include media("max", "xl") {
+      height: auto;
+    }
   }
   &__right,
   &__left {
     width: 100%;
   }
   &__left {
-  }
-  &__right {
-    background-color: darkseagreen;
+    margin-right: 110px;
   }
 }
 

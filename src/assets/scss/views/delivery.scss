@@ -1,0 +1,107 @@
+
+.delivery {
+
+  &__list {
+    width: 100%;
+  }
+
+  &__wrapper {
+    cursor: pointer;
+    border-radius: 22px;
+    border: 1px solid #E9F0EB;
+    margin-bottom: 18px;
+    position: relative;
+    background-color: $white;
+    transition: all .3s;
+    &:hover {
+      box-shadow: 0 0 13px 0 rgba(#000, .3)
+    }
+    &--picked {
+      &:hover{
+        box-shadow: none
+      }
+
+    }
+  }
+  &__picked {
+    box-shadow: 0 0 20px rgba(120, 161, 187, 0.3);
+    border-radius: 22px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 90;
+    right: 0;
+    top: 0;
+    background: linear-gradient(350deg, #65B3E4 35.35%, rgba(255, 255, 255, 0) 92.73%);
+    display: flex;
+    align-items: center;
+
+  }
+  &__title {
+    color: $dark;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 33px;
+    margin-bottom: 70px;
+    @include media("max", "md") {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__item {
+    background-color: $white;
+    position: relative;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-left: 38px;
+    margin-right: 70px;
+    z-index: 100;
+    border-radius: 22px 0 0 22px;
+    @include media("max", "md") {
+      margin-right: 50px;
+      padding-top: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    max-height: $max-height-delivery;
+    margin-top: -($max-height-delivery / 2);
+    display: flex;
+    right: 0;
+    top: 50%;
+    @include media("max", "md") {
+      max-height: $max-height-delivery-min;
+      margin-top: -($max-height-delivery-min / 2);
+    }
+    img {
+      margin-left: auto;
+      max-width:100%;
+      max-height:100%;
+      object-position: right;
+      object-fit: contain;
+    }
+  }
+  &__price {
+    color: #78A1BB;
+    font-size: 50px;
+    line-height: 59px;
+    font-weight: bold;
+    @include media("max", "md") {
+     font-size: 32px;
+    }
+  }
+  &__marked {
+    margin-left: auto;
+    margin-right: 10px;
+    color: white;
+    font-size: 60px;
+    @include media("max", "md") {
+      font-size: 42px;
+      margin-right: 6px;
+    }
+  }
+}

@@ -1,5 +1,11 @@
-@import "content.scss";
-@import "header.scss";
-@import "v-btn.scss";
+@import "popular-cities.scss";
+@import "shipping.scss";
+@import "delivery.scss";
 @import "v-input.scss";
+@import "content.scss";
+@import "footer.scss";
+@import "header.scss";
+@import "banner.scss";
+@import "v-btn.scss";
+@import "main.scss";
 @import "form.scss";
