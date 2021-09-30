@@ -2,14 +2,46 @@ export default {
   namespaced: true,
   state: {
     options: [
-      { label: 'Nur-Sultan', disabled: true },
-      { label: 'Almaty', disabled: true },
-      { label: 'Shymkent', disabled: true },
-      { label: 'Atyrau', disabled: true },
-      { label: 'Aktau', disabled: true },
-      { label: 'Zhana Turmis', disabled: true },
-      { label: 'Karaganda', disabled: true },
-      { label: 'Kentau', disabled: true },
+      {
+        id: 1,
+        label: 'Nur-Sultan',
+        disabled: true
+      },
+      {
+        id: 2,
+        label: 'Almaty',
+        disabled: true
+      },
+      {
+        id: 3,
+        label: 'Shymkent',
+        disabled: true
+      },
+      {
+        id: 4,
+        label: 'Atyrau',
+        disabled: true
+      },
+      {
+        id: 5,
+        label: 'Aktau',
+        disabled: true
+      },
+      {
+        id: 6,
+        label: 'Zhana Turmis',
+        disabled: true
+      },
+      {
+        id: 7,
+        label: 'Karaganda',
+        disabled: true
+      },
+      {
+        id: 8,
+        label: 'Kentau',
+        disabled: true
+      },
     ],
 
     searchVal: '',
@@ -29,8 +61,12 @@ export default {
         }
       }else {
         state.setClassShow = false
-        console.log(2)
       }
+    },
+    selectedCity(state, id) {
+      let item = state.options.find(item => item.id === id)
+      state.searchVal = item.label
+      state.setClassShow = false
     },
 
     clearValCities(state){
@@ -61,6 +97,9 @@ export default {
 
     onSubmitAction({commit, getters}) {
       commit('onSubmit', getters)
+    },
+    selectedCityAction({commit}, id) {
+      commit('selectedCity', id)
     }
   },
   getters: {
@@ -76,10 +115,15 @@ export default {
       return state.searchVal
     },
 
-    searchingCityVal(state) {
-      return state.options.filter(item =>
-        item.label.toLowerCase().includes(state.searchVal.toLowerCase())
-      )
+    searchingCityVal(state, getters) {
+      let { searchVal } = state
+      return getters.getOptionSort.filter( item => {
+        item.label = item.label.toLowerCase()
+        searchVal = searchVal.toLowerCase()
+        if(!item.label.indexOf(searchVal, 0)) {
+          return item.label
+        }
+      })
     },
 
     getSetClassShow(state) {

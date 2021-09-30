@@ -29,6 +29,7 @@
 
   &__right{
     position: relative;
+    visibility: hidden;
     &-wrapper {
       margin-left: 70px;
       display: none;

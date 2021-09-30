@@ -21,8 +21,8 @@
 			>{{ textBtn }}</v-btn>
 			<template v-if="isOpen">
 				<ul class="form__list" v-if="showError">
-					<template v-for="city of searchingCityVal">
-						<li class="form__item">
+					<template v-for="city of searchingCityVal" >
+						<li class="form__item" @click="()=>selectedCity(city.id)" :key="city.id">
 							{{ city.label }}
 						</li>
 					</template>
@@ -59,6 +59,7 @@ export default {
       searchSetValAction: 'search/searchSetValAction',
       clearValCityAction: 'search/clearValCityAction',
       onSubmit: 'search/onSubmitAction',
+      selectedCity: 'search/selectedCityAction',
 		}),
     searchSetVal(value) {
       this.searchSetValAction(value)

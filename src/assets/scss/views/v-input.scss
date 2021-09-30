@@ -1,10 +1,12 @@
 .v-input {
   height: 63px;
-  border: 1px solid #e9f0eb;
-  overflow: hidden;
+  //border: 1px solid #e9f0eb;
+  //overflow: hidden;
   border-radius: 30px 30px 30px 30px;
   z-index: 106;
   position: relative;
+  box-shadow: 0 0 0 1px rgba(#e9f0eb, 1);
+  //transition: all 1s;
   @include media("max", "sm") {
    height: 50px;
   }
@@ -17,6 +19,8 @@
     font-size: 24px;
     color: #283044;
     font-weight: 700;
+    border-radius: 30px 30px 30px 30px;
+    //transition: all .4s;
     @include media("max", "sm") {
       padding-left: 20px;
       font-size: 16px;
@@ -31,6 +35,9 @@
     }
     &:focus-visible {
       outline: none;
+    }
+    &:focus {
+      //box-shadow: 0 0 0 1px rgba(#65B3E4, .8);
     }
   }
 }
