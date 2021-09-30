@@ -1,15 +1,18 @@
 .v-btn {
   border-radius: 50px;
-  padding: 17px 50px;
+  padding: 17px 25px;
   font-weight: bold;
   line-height: 29px;
   font-size: 24px;
   color: $white;
   z-index: 110;
+  width: 100%;
+  max-width: 170px;
   @include media("max", "sm") {
     font-size: 16px;
     line-height: 18px;
     padding: 16px 20px;
+    max-width: 78px;
   }
   &__sky-blue {
     background: $sky-blue-lr-gt;
@@ -20,6 +23,7 @@
   }
   &__scarlet {
     background: $scarlet-lr-gt;
+    width: auto;
     &:hover {
       background: lighten($scarlet, 20%);
     }
