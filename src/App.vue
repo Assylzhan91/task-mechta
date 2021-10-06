@@ -3,8 +3,8 @@
 			<template #left>
 				<v-header class="mb-80 main__left-header"/>
 				<v-search class="mb-40"/>
-				<v-table-cities class="mb-100" />
-				<v-footer class="main__footer" />
+				<v-table-cities class="mb-100"/>
+				<v-footer class="main__footer"/>
 			</template>
 			<template #right>
 				<v-shipping/>
@@ -12,6 +12,7 @@
 			<template #media-footer>
 				<v-footer/>
 			</template>
+
 		</v-layout>
 </template>
 <script>
@@ -22,11 +23,9 @@ import VLayout from "./views/VLayout"
 import VTableCities from "./views/VTableCities"
 import VFooter from "./views/VFooter"
 import VShipping from "./views/VShipping"
+import {mapActions} from "vuex";
 
 export default {
-  data: ()=>({
-
-	}),
 	components: {
     VSearch,
 		VHeader,
@@ -35,6 +34,13 @@ export default {
     VFooter,
     VShipping
 	},
-
+	methods: {
+    ...mapActions({
+			'getAllCities': 'search/getAllCitiesAction'
+		})
+	},
+	mounted() {
+		this.getAllCities()
+  }
 }
 </script>

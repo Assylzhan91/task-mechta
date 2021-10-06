@@ -1,3 +1,6 @@
+import delivery from "./delivery";
+
+let url = 'https://qvjgl.mocklab.io/delivery/check'
 export default {
   namespaced: true,
   state: {
@@ -46,7 +49,9 @@ export default {
 
     searchVal: '',
     isOpen: true,
-    setClassShow: false
+    setClassShow: false,
+    showedDelivery: false,
+    showedLoading: false
   },
 
   mutations: {
@@ -69,9 +74,10 @@ export default {
       state.setClassShow = false
     },
 
-    clearValCities(state){
+    clearValCities(state) {
       state.searchVal = ''
-      this.showError = false
+      state.showError = false
+      state.showedDelivery = false
     },
 
     onSubmit(state, getters){
@@ -80,6 +86,7 @@ export default {
         state.searchVal = searchingCityVal[0].label
         state.setClassShow = false
         state.isOpen = false
+        state.showedDelivery = true
       }
     },
   },
@@ -91,15 +98,37 @@ export default {
       })
     },
 
-    clearValCityAction({commit}) {
-      commit('clearValCities')
+    async getAllCitiesAction({commit}) {
+      try {
+        // commit('getAllCities')
+        let res = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Accept': "application/json",
+            'Content-Type': 'application/json'
+          }
+        })
+        // console.log(res)
+        let json = await res.json()
+      }catch (e) {
+        // console.log(e)
+      }
     },
 
-    onSubmitAction({commit, getters}) {
-      commit('onSubmit', getters)
+    clearValCityAction({commit, rootState}) {
+      commit('clearValCities')
+      let { delivery } = rootState
+      delivery.deliveryMethods = []
     },
-    selectedCityAction({commit}, id) {
+
+    onSubmitAction(store) {
+      let { getters } = store
+      store.commit('onSubmit', getters)
+    },
+    selectedCityAction(store, id) {
+      let { commit,  getters, dispatch} = store
       commit('selectedCity', id)
+      dispatch('onSubmitAction', getters)
     }
   },
   getters: {
@@ -131,6 +160,13 @@ export default {
         ? 'form__group--set-shadow'
         : ''
     },
+    getShowedDelivery (state){
+      return state.showedDelivery
+    },
+    getShowedLoading (state){
+      return state.showedLoading
+    }
   },
+
 
 };

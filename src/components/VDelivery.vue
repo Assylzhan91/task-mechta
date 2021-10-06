@@ -2,12 +2,18 @@
 	<div class="delivery shipping__delivery">
 		<ul class="delivery__list">
 			<li
+				v-for="(method, idx) of deliveryMethod"
 				class="delivery__wrapper"
-				:class="{'delivery__wrapper--picked':method.picked}"
-				v-for="method of deliveryMethod"
+				:class="{
+          'delivery__wrapper--picked':method.picked,
+         	'delivery__wrapper--not-available':!method.available
+        }"
+				@click="method.available && pickUpMethod(idx)"
+				:key="method.type"
 			>
 				<div class="delivery__item">
 					<h4 class="delivery__title">{{ method.title }}</h4>
+					<h4 v-if="!method.available" class="delivery__text-disable">Not availible in that city</h4>
 					<div class="delivery__img">
 						<img :src="method.img" alt="">
 					</div>
@@ -22,14 +28,23 @@
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import {mapGetters, mapActions} from "vuex";
 
 export default {
   name: "VDelivery",
+	created() {
+    this.methodDelivery()
+  },
   computed: {
     ...mapGetters({
       deliveryMethod: 'delivery/getDeliveryMethod'
+		}),
+  },
+	methods: {
+    ...mapActions({
+			'methodDelivery': 'delivery/getCityAction',
+			'pickUpMethod': 'delivery/pickUpMethodAction',
 		})
-  }
+	}
 }
 </script>
